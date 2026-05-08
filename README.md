@@ -32,6 +32,35 @@ npm run test:android
 npm run test:ios
 ```
 
+Codegen onboarding shortcuts:
+
+```bash
+npm run test:codegen:onboarding:ios
+npm run test:codegen:onboarding:android
+```
+
+## Reports
+
+Every WebdriverIO run now generates:
+
+- Extent-style detailed HTML: `artifacts/reports/extent-report.html`
+- HTML summary report: `artifacts/reports/html-report.html`
+- Allure raw results: `artifacts/allure-results`
+
+Generate the rendered Allure HTML report:
+
+```bash
+npm run report:allure:generate
+```
+
+Open the generated Allure report:
+
+```bash
+npm run report:allure:open
+```
+
+Rendered Allure output is written to `artifacts/allure-report`.
+
 ## Generate page logic and step definitions from Gherkin
 
 Offline deterministic generation:

@@ -8,6 +8,8 @@
     "test:ios": "wdio run ./wdio.ios.conf.ts",
     "test:codegen:onboarding:android": "wdio run ./wdio.codegen.onboarding.android.conf.ts",
     "test:codegen:onboarding:ios": "wdio run ./wdio.codegen.onboarding.ios.conf.ts",
+    "report:allure:generate": "allure generate ./artifacts/allure-results --clean -o ./artifacts/allure-report",
+    "report:allure:open": "allure open ./artifacts/allure-report",
     "generate:steps": "node --import tsx ./src/generator/gherkin-generator.ts",
     "migrate:features": "node --import tsx ./src/migration/migrate-features.ts",
     "migrate:locators": "node --import tsx ./src/migration/migrate-locators.ts",
@@ -35,6 +37,8 @@
     "webdriverio": "^9.17.0"
   },
   "devDependencies": {
+    "@wdio/allure-reporter": "^9.27.1",
+    "allure-commandline": "^2.40.0",
     "appium-uiautomator2-driver": "^2.45.1",
     "appium-xcuitest-driver": "^5.16.1"
   }

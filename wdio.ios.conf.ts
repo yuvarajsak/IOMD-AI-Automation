@@ -5,6 +5,7 @@ import { resetIosSimulator } from "./src/support/ios-simulator";
 export const config = {
   ...sharedConfig,
   onPrepare: async function () {
+    await sharedConfig.onPrepare();
     resetIosSimulator();
   },
   capabilities: [

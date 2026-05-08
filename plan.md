@@ -96,6 +96,38 @@ TypeScript validation:
 npm run typecheck
 ```
 
+Generate Allure HTML:
+
+```sh
+npm run report:allure:generate
+```
+
+Open generated Allure HTML:
+
+```sh
+npm run report:allure:open
+```
+
+## Reporting
+
+Status: Active
+
+All WebdriverIO runs now generate report artifacts automatically:
+
+- Extent-style detailed HTML: `artifacts/reports/extent-report.html`
+- HTML summary report: `artifacts/reports/html-report.html`
+- Allure raw results: `artifacts/allure-results`
+- Allure rendered report after `npm run report:allure:generate`: `artifacts/allure-report/index.html`
+
+Reporting implementation:
+
+- Shared WDIO reporter config: `wdio.shared.conf.ts`
+- Cucumber report hooks: `src/support/hooks.ts`
+- HTML/Extent report generator: `src/support/reports.ts`
+- Report dependencies: `@wdio/allure-reporter`, `allure-commandline`
+
+Report directories are ignored by git through `artifacts/`; regenerate reports from local test runs.
+
 ## Codegen Execution Order
 
 Status: Active
@@ -283,6 +315,23 @@ Completed:
 Blocked:
 
 - Android execution is waiting for Android Studio/emulator and an APK.
+
+### 2026-05-08
+
+Completed:
+
+- Added Allure reporter integration to the shared WebdriverIO config.
+- Added framework-generated Extent-style detailed HTML report.
+- Added framework-generated HTML summary report.
+- Added report output cleanup/generation hooks for each run.
+- Added report scripts:
+  - `npm run report:allure:generate`
+  - `npm run report:allure:open`
+- Updated iOS configs with custom `onPrepare` hooks to call shared report setup before simulator reset.
+- Ran `npm run typecheck` successfully.
+- Ran `npm run test:codegen:onboarding:ios` successfully with reporting enabled.
+- Latest reporting validation result: passed, 1 spec passed, 3 scenarios passed, 18 Cucumber steps passed, total run time 00:01:44.
+- Generated rendered Allure HTML successfully with `npm run report:allure:generate`.
 
 ## Next Actions
 

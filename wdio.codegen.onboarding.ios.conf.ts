@@ -7,6 +7,7 @@ export const config = {
   ...sharedConfig,
   specs: ["./features/codegen/step03-onboarding.feature"],
   onPrepare: async function () {
+    await sharedConfig.onPrepare();
     resetIosSimulator(IOS_UDID);
   },
   capabilities: [
