@@ -108,6 +108,18 @@ Open generated Allure HTML:
 npm run report:allure:open
 ```
 
+iOS Codegen Buy Again:
+
+```sh
+npm run test:codegen:buyagain:ios
+```
+
+Codegen Buy Again dry run:
+
+```sh
+npm run dryrun:codegen:buyagain
+```
+
 ## Reporting
 
 Status: Active
@@ -232,6 +244,75 @@ Android result:
 - No Android device was attached when checked.
 - APK was not present at `/Users/ideas2it/Downloads/NodeApp/IOMDAutofill.apk`.
 
+### Codegen Buy Again
+
+Status: Implemented as separated Codegen flow, dry run passed
+
+Feature:
+
+```text
+features/codegen/step14-buy-again.feature
+```
+
+Step definitions:
+
+```text
+src/steps/codegen-buy-again.steps.ts
+```
+
+Page object:
+
+```text
+src/pages/codegen-buy-again.page.ts
+```
+
+iOS config:
+
+```text
+wdio.codegen.buyagain.ios.conf.ts
+```
+
+Codegen source note:
+
+```text
+Codegen/steps/step14_buy_again/step.md
+```
+
+Scripts:
+
+```text
+npm run test:codegen:buyagain:ios
+npm run dryrun:codegen:buyagain
+```
+
+Covered flow:
+
+1. Complete current Codegen skip-Gmail onboarding.
+2. Open Shopify storefront.
+3. Unlock store with configured password.
+4. Enable node Safari extension.
+5. Open Shopify product page directly.
+6. Close Safari/Shopify overlay state where possible.
+7. Add product to cart using web-context click fallback first, then native selector fallback.
+8. Start checkout.
+9. Enter checkout contact and address details.
+10. Enter payment details.
+11. Submit order.
+12. Track order from thank-you page.
+13. Return to IOMD app.
+14. Open business/product and tap Buy Again.
+
+Reason for separation:
+
+- The previous legacy runner passed onboarding, Shopify launch, store password, and extension enablement, then failed at product add-to-cart because Safari exposed `Add to cart` as present but hidden behind storefront/extension overlay state.
+- The Buy Again flow is now isolated into Codegen feature, steps, page object, and config so future Codegen tasks do not depend on the generated legacy step file.
+
+Validation:
+
+- 2026-05-08: `npm run dryrun:codegen:buyagain` passed, validating 12 feature steps against Codegen Buy Again step definitions.
+- 2026-05-08: `npm run typecheck` passed.
+- Live iOS execution is still pending; run `npm run test:codegen:buyagain:ios` when ready to exercise Appium/Safari/device behavior.
+
 ## Android Readiness
 
 Status: Config ready, execution blocked by local setup
@@ -286,7 +367,8 @@ Current entries:
   - Executor: `src/support/legacy-step-executor.ts`
   - One-command iOS config: `wdio.legacy.buyagain.ios.conf.ts`
   - Run command: `npm run test:legacy:buyagain:ios`
-  - Current status: automated through onboarding, Safari launch, Shopify store password, and node extension enable/review. Execution is blocked in the Shopify product step because iOS Safari exposes `Add to cart` in the accessibility tree while reporting it hidden behind the storefront drawer/extension banner state.
+  - Current status: legacy automation is retained for traceability, but active Buy Again work has been separated into the Codegen flow at `features/codegen/step14-buy-again.feature`.
+  - Latest legacy execution status: automated through onboarding, Safari launch, Shopify store password, and node extension enable/review. Execution blocked in the Shopify product step because iOS Safari exposes `Add to cart` in the accessibility tree while reporting it hidden behind the storefront drawer/extension banner state.
 
 ## Action Log
 
@@ -346,10 +428,23 @@ Completed:
 - Hardened Shopify store password entry, Safari `Manage Extensions`, node extension toggle, Safari permission review, direct product navigation, checkout/card/pay/track-order, and Buy Again selectors.
 - Ran `npm run typecheck` successfully after the Buy Again automation updates.
 - Ran `npm run test:legacy:buyagain:ios`; latest result: failed after 4 passing steps and 1 failing step. Passing: onboarding, Shopify website launch, store password, node extension enable. Failing: `Then user selects first product and proceeds to checkout` because `Add to cart` is present but hidden in iOS Safari after the storefront drawer/extension banner state.
+- Separated Buy Again from legacy generated steps into Codegen-specific files:
+  - `Codegen/steps/step14_buy_again/step.md`
+  - `features/codegen/step14-buy-again.feature`
+  - `src/pages/codegen-buy-again.page.ts`
+  - `src/steps/codegen-buy-again.steps.ts`
+  - `wdio.codegen.buyagain.ios.conf.ts`
+  - `scripts/dry-run-codegen-buyagain.ts`
+- Added npm scripts:
+  - `npm run test:codegen:buyagain:ios`
+  - `npm run dryrun:codegen:buyagain`
+- Added product add-to-cart handling with web-context click fallback before native Safari selector fallback.
+- Ran `npm run dryrun:codegen:buyagain` successfully; 12 Codegen Buy Again steps validated.
+- Ran `npm run typecheck` successfully after the Codegen Buy Again split.
 
 Blocked:
 
-- Legacy Buy Again checkout completion is blocked by the current Shopify/Safari overlay state. Next fix should inspect the live Safari hierarchy after node extension review and either close the drawer reliably before product navigation or use a JavaScript/web-context click for `Add to cart`.
+- Live iOS Codegen Buy Again execution is pending. The legacy failure was at Shopify `Add to cart`; the new Codegen path includes a web-context click fallback, but this still needs a device run to confirm the Safari overlay is handled end to end.
 
 ## Next Actions
 
@@ -365,7 +460,9 @@ Status: Pending
 8. Add Step03 persistence checks for onboarding completion / returning-user bypass when the framework has a stable app-data inspection hook.
 9. Start `step04_tabs_and_home_page`.
 10. Continue the remaining Codegen steps in execution order.
-11. Continue legacy Buy Again from the latest blocker: close Safari storefront drawer/extension banner reliably, then validate add-to-cart, checkout, payment, Track My Order, app return, and Buy Again purchase path.
+11. Run `npm run test:codegen:buyagain:ios` on the iOS simulator after dry run/typecheck pass.
+12. If live iOS still blocks at Shopify overlay, capture page source/screenshots after extension review and tune the Codegen page object fallback selectors.
+13. Continue legacy Buy Again only for traceability unless the user asks to maintain the legacy generated runner.
 
 ## Framework Rules
 

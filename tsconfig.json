@@ -12,5 +12,5 @@
     "outDir": "dist",
     "rootDir": "."
   },
-  "include": ["src/**/*.ts", "wdio.*.ts"]
+  "include": ["src/**/*.ts", "scripts/**/*.ts", "wdio.*.ts"]
 }
