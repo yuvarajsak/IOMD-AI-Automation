@@ -1,6 +1,12 @@
 import { Given, Then, When } from "@wdio/cucumber-framework";
 import { tovalidatethebuyagaindataisgettingdisplayedasexpectedfeatureslegacyiomdfeaturesbuyagainendtoendpage } from "../../pages/generated/features-legacy-iomd-features-buy-again-endto-end.page";
 
+When("user completes onboarding flow", async function () {
+  await tovalidatethebuyagaindataisgettingdisplayedasexpectedfeatureslegacyiomdfeaturesbuyagainendtoendpage.userCompletesOnboardingFlow();
+});
+When("user launches the website {string}", async function (url: string) {
+  await tovalidatethebuyagaindataisgettingdisplayedasexpectedfeatureslegacyiomdfeaturesbuyagainendtoendpage.userLaunchesTheWebsiteUrl(url);
+});
 When("user enters the store password", async function () {
   await tovalidatethebuyagaindataisgettingdisplayedasexpectedfeatureslegacyiomdfeaturesbuyagainendtoendpage.userEntersTheStorePassword();
 });
@@ -22,7 +28,9 @@ Then("user clicks Pay Now button", async function () {
 When("user clicks on track my order button from thank you page", async function () {
   await tovalidatethebuyagaindataisgettingdisplayedasexpectedfeatureslegacyiomdfeaturesbuyagainendtoendpage.userClicksOnTrackMyOrderButtonFromThankYouPage();
 });
+When("user switches back to the IOMD application", async function () {
+  await tovalidatethebuyagaindataisgettingdisplayedasexpectedfeatureslegacyiomdfeaturesbuyagainendtoendpage.userSwitchesBackToTheIomdApplication();
+});
 When("user selects first business and clicks buy again", async function () {
   await tovalidatethebuyagaindataisgettingdisplayedasexpectedfeatureslegacyiomdfeaturesbuyagainendtoendpage.userSelectsFirstBusinessAndClicksBuyAgain();
 });
-

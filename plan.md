@@ -279,6 +279,14 @@ Use this section whenever a legacy test case is automated, migrated, executed, f
 Current entries:
 
 - Legacy Applitools onboarding remains separate from Codegen onboarding. The Codegen skip-Gmail Commerce Token flow is implemented in `features/codegen/step03-onboarding.feature`; legacy onboarding should only be changed when a user explicitly asks for that legacy case.
+- Buy Again end-to-end legacy case is now wired into this framework:
+  - Source feature: `features/legacy/iomd_features/buyAgainEndtoEnd.feature`
+  - Generated steps: `src/steps/generated/features-legacy-iomd-features-buy-again-endto-end.steps.ts`
+  - Generated page: `src/pages/generated/features-legacy-iomd-features-buy-again-endto-end.page.ts`
+  - Executor: `src/support/legacy-step-executor.ts`
+  - One-command iOS config: `wdio.legacy.buyagain.ios.conf.ts`
+  - Run command: `npm run test:legacy:buyagain:ios`
+  - Current status: automated through onboarding, Safari launch, Shopify store password, and node extension enable/review. Execution is blocked in the Shopify product step because iOS Safari exposes `Add to cart` in the accessibility tree while reporting it hidden behind the storefront drawer/extension banner state.
 
 ## Action Log
 
@@ -332,6 +340,16 @@ Completed:
 - Ran `npm run test:codegen:onboarding:ios` successfully with reporting enabled.
 - Latest reporting validation result: passed, 1 spec passed, 3 scenarios passed, 18 Cucumber steps passed, total run time 00:01:44.
 - Generated rendered Allure HTML successfully with `npm run report:allure:generate`.
+- Validated legacy Buy Again feature file and added a dedicated one-command iOS runner for `features/legacy/iomd_features/buyAgainEndtoEnd.feature`.
+- Added missing Buy Again step bindings for onboarding, website launch, and switching back to the IOMD app.
+- Updated Buy Again legacy executor to reuse the working Codegen skip-Gmail Commerce Token onboarding path instead of the old Gmail path.
+- Hardened Shopify store password entry, Safari `Manage Extensions`, node extension toggle, Safari permission review, direct product navigation, checkout/card/pay/track-order, and Buy Again selectors.
+- Ran `npm run typecheck` successfully after the Buy Again automation updates.
+- Ran `npm run test:legacy:buyagain:ios`; latest result: failed after 4 passing steps and 1 failing step. Passing: onboarding, Shopify website launch, store password, node extension enable. Failing: `Then user selects first product and proceeds to checkout` because `Add to cart` is present but hidden in iOS Safari after the storefront drawer/extension banner state.
+
+Blocked:
+
+- Legacy Buy Again checkout completion is blocked by the current Shopify/Safari overlay state. Next fix should inspect the live Safari hierarchy after node extension review and either close the drawer reliably before product navigation or use a JavaScript/web-context click for `Add to cart`.
 
 ## Next Actions
 
@@ -347,6 +365,7 @@ Status: Pending
 8. Add Step03 persistence checks for onboarding completion / returning-user bypass when the framework has a stable app-data inspection hook.
 9. Start `step04_tabs_and_home_page`.
 10. Continue the remaining Codegen steps in execution order.
+11. Continue legacy Buy Again from the latest blocker: close Safari storefront drawer/extension banner reliably, then validate add-to-cart, checkout, payment, Track My Order, app return, and Buy Again purchase path.
 
 ## Framework Rules
 

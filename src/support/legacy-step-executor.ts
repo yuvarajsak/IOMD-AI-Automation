@@ -1,6 +1,7 @@
 import { env } from "../config/env";
 import { testData } from "../data/test-data";
 import { selectorToString } from "../locators/selector-registry";
+import { codegenOnboardingPage } from "../pages/codegen-onboarding.page";
 import { legacyAppLocators, legacySafariLocators, legacyWebLocators } from "../selectors/generated";
 
 type StepHandler = {
@@ -122,6 +123,117 @@ const firstVisibleElement = async (selectors: string[]): Promise<WebdriverIO.Ele
     }
   }
   throw new Error(`Unable to find a visible element for selectors: ${selectors.join(" | ")}`);
+};
+
+const maybeFirstVisibleElement = async (selectors: string[]): Promise<WebdriverIO.Element | undefined> => {
+  try {
+    return await firstVisibleElement(selectors);
+  } catch {
+    return undefined;
+  }
+};
+
+const swipeUp = async (): Promise<void> => {
+  try {
+    await driver.execute("mobile: swipe", { direction: "up" });
+  } catch {
+    const size = await driver.getWindowSize();
+    await driver.execute("mobile: dragFromToForDuration", {
+      duration: 0.5,
+      fromX: Math.round(size.width * 0.5),
+      fromY: Math.round(size.height * 0.82),
+      toX: Math.round(size.width * 0.5),
+      toY: Math.round(size.height * 0.28)
+    });
+  }
+};
+
+const swipeDown = async (): Promise<void> => {
+  try {
+    await driver.execute("mobile: swipe", { direction: "down" });
+  } catch {
+    const size = await driver.getWindowSize();
+    await driver.execute("mobile: dragFromToForDuration", {
+      duration: 0.5,
+      fromX: Math.round(size.width * 0.5),
+      fromY: Math.round(size.height * 0.28),
+      toX: Math.round(size.width * 0.5),
+      toY: Math.round(size.height * 0.82)
+    });
+  }
+};
+
+const firstVisibleElementWithSwipe = async (selectors: string[], description: string, attempts = 6): Promise<WebdriverIO.Element> => {
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    const element = await maybeFirstVisibleElement(selectors);
+    if (element) {
+      return element;
+    }
+    await swipeUp();
+    await pause(700);
+  }
+  throw new Error(`Unable to find ${description} after ${attempts} swipe attempts.`);
+};
+
+const clickFirstVisibleWithSwipe = async (selectors: string[], description: string, attempts = 6): Promise<void> => {
+  const element = await firstVisibleElementWithSwipe(selectors, description, attempts);
+  await element.click();
+};
+
+const closeKeyboardIfVisible = async (): Promise<void> => {
+  await clickIfVisible(`//*[@name='Done' or @label='Done']`);
+};
+
+const continueToPaymentIfNeeded = async (): Promise<void> => {
+  for (let attempt = 0; attempt < 8; attempt += 1) {
+    const paymentField = await maybeFirstVisibleElement([
+      `//*[contains(@name,'Card number') or contains(@label,'Card number') or contains(@value,'Card number')]`,
+      `//*[contains(@name,'Payment') or contains(@label,'Payment')]`
+    ]);
+    if (paymentField) {
+      return;
+    }
+
+    if (await clickByLabels(["Continue to payment", "Continue to shipping", "Continue", "Review order"])) {
+      await pause(1800);
+      continue;
+    }
+    await swipeUp();
+  }
+};
+
+const openSafariManageExtensions = async (): Promise<void> => {
+  await tapSelector(`~PageFormatMenuButton`);
+  await clickFirstVisibleWithSwipe(
+    [
+      `//*[@name='Manage Extensions' or @label='Manage Extensions']`,
+      `//*[@name='ManageExtensions' or @label='ManageExtensions']`,
+      `//*[contains(@name,'Manage') and contains(@name,'Extension')]`,
+      `//*[contains(@label,'Manage') and contains(@label,'Extension')]`,
+      `//*[contains(@name,'Extensions') or contains(@label,'Extensions')]`
+    ],
+    "Safari Manage Extensions menu item",
+    4
+  );
+};
+
+const handleSafariExtensionPermissionReview = async (useCoordinateFallback = false): Promise<void> => {
+  if (!(await clickByLabels(["Review"]))) {
+    if (!useCoordinateFallback) {
+      return;
+    }
+    await driver.execute("mobile: tap", { x: 1015, y: 260 });
+    await pause(1000);
+  }
+  await clickByLabels(["Always Allow on Every Website", "Always Allow", "Allow"]);
+  await clickByLabels(["Done", "OK"]);
+  await pause(1000);
+};
+
+const closeShopifyDrawerIfOpen = async (): Promise<void> => {
+  await clickByLabels(["Close", "Close menu"]);
+  await driver.execute("mobile: tap", { x: 75, y: 420 });
+  await pause(1000);
 };
 
 const verifyTextPresent = async (text: string): Promise<void> => {
@@ -462,25 +574,15 @@ const handlers: StepHandler[] = [
   {
     pattern: /^user completes onboarding flow(?: with animation| with card data| with card data and validation| with invalid address| with validation)?$/i,
     run: async () => {
-      await driver.launchApp();
+      await codegenOnboardingPage.launchFresh();
       await clickIfVisible(`//*[@name="Allow" or @label="Allow"]`);
-
-      if (await clickIfVisible(`//XCUIElementTypeButton[contains(@name,'Continue')]`)) {
-        const onboardingField = await firstVisibleElement([
-          `//XCUIElementTypeTextField[@value='e.g. your name']`,
-          `//XCUIElementTypeTextField[contains(@value,'your name')]`,
-          `//XCUIElementTypeTextField`,
-          `//android.widget.EditText`
-        ]);
-        await onboardingField.click();
-        await onboardingField.clearValue();
-        await onboardingField.setValue(randomTokenPrefix());
-        await clickIfVisible(`//*[contains(@name,'Done')]`);
-        await pause(5000);
-        await tapSelector(`//XCUIElementTypeButton[contains(@name,'Create')]`);
-        await tapSelector(`//XCUIElementTypeStaticText[contains(@name,'You are all set')]`);
-        return;
-      }
+      await codegenOnboardingPage.continueFromSplash();
+      await codegenOnboardingPage.skipGmailImport();
+      await codegenOnboardingPage.expectCreateTokenVisible();
+      await codegenOnboardingPage.enterUniqueCommerceToken();
+      await codegenOnboardingPage.submitCommerceToken();
+      await codegenOnboardingPage.expectTokenCreationProgress();
+      await codegenOnboardingPage.expectPostCreateSuccess();
 
       await clickIfVisible(`//*[@name="Next" or @label="Next"]`);
       await clickIfVisible(`//*[@name="DO IT LATER" or @label="DO IT LATER"]`);
@@ -491,32 +593,70 @@ const handlers: StepHandler[] = [
   {
     pattern: /^user enters the store password$/i,
     run: async () => {
-      await typeSelector(`//XCUIElementTypeSecureTextField[@name='Enter store password']`, "nodeC0nnect");
-      await tapSelector(`//XCUIElementTypeButton[@name='Enter']`);
+      const password = process.env.SHOPIFY_STORE_PASSWORD || "nodeC0nnect";
+      const passwordField = await firstVisibleElement([
+        `//XCUIElementTypeSecureTextField[@name='Enter store password']`,
+        `//XCUIElementTypeSecureTextField[contains(@name,'password') or contains(@label,'password') or contains(@value,'password')]`,
+        `//XCUIElementTypeSecureTextField`
+      ]);
+      await passwordField.click();
+      await passwordField.clearValue();
+      await passwordField.setValue(password);
+      await closeKeyboardIfVisible();
+      await clickFirstVisibleWithSwipe(
+        [
+          `//XCUIElementTypeButton[@name='Enter' or @label='Enter']`,
+          `//XCUIElementTypeButton[contains(@name,'Enter') or contains(@label,'Enter')]`,
+          `//XCUIElementTypeButton[@name='Submit' or @label='Submit']`
+        ],
+        "store password submit button",
+        3
+      );
       await pause(5000);
     }
   },
   {
     pattern: /^user enables node extension$/i,
     run: async () => {
-      await tapSelector(`~PageFormatMenuButton`);
-      await tapSelector(`//XCUIElementTypeCell[@name='ManageExtensions']`);
-      const nodeToggle = await $(`//XCUIElementTypeSwitch[@name='node.']`);
-      await nodeToggle.waitForDisplayed({ timeout: 20000 });
-      if ((await nodeToggle.getAttribute("value")) === "0") {
+      await openSafariManageExtensions();
+      const nodeToggle = await firstVisibleElement([
+        `//XCUIElementTypeSwitch[@name='node.' or @label='node.']`,
+        `//XCUIElementTypeSwitch[contains(@name,'node') or contains(@label,'node')]`,
+        `//*[contains(@name,'node') or contains(@label,'node')]//XCUIElementTypeSwitch`
+      ]);
+      const toggleValue = await nodeToggle.getAttribute("value");
+      if (toggleValue === "0" || toggleValue?.toLowerCase() === "off") {
         await nodeToggle.click();
       }
-      await tapSelector(`~Done`);
-      await driver.execute("mobile: tap", { x: 200, y: 200 });
+      await clickByLabels(["Done"]);
+      await handleSafariExtensionPermissionReview(true);
     }
   },
   {
     pattern: /^user selects first product and proceeds to checkout$/i,
     run: async () => {
-      await driver.execute("mobile: swipe", { direction: "up" });
-      await tapSelector(`//XCUIElementTypeOther[contains(@name,'Snowboard')]`);
-      await tapSelector(`//*[@name='Add to cart' or @label='Add to cart']`);
-      await tapSelector(`//*[@name='Check out' or @label='Check out' or @name='CHECK OUT']`);
+      await handleSafariExtensionPermissionReview();
+      await browser.url(process.env.SHOPIFY_PRODUCT_URL || "https://iomdnewgen21.myshopify.com/products/the-compare-at-price-snowboard");
+      await pause(2500);
+      await handleSafariExtensionPermissionReview();
+      await closeShopifyDrawerIfOpen();
+      await swipeUp();
+      await clickFirstVisibleWithSwipe(
+        [
+          `//*[@name='Add to cart' or @label='Add to cart']`,
+          `//*[contains(@name,'add to cart') or contains(@label,'add to cart') or contains(@name,'Add to cart') or contains(@label,'Add to cart')]`
+        ],
+        "Add to cart button",
+        8
+      );
+      await clickFirstVisibleWithSwipe(
+        [
+          `//*[@name='Check out' or @label='Check out' or @name='CHECK OUT']`,
+          `//*[contains(@name,'Check out') or contains(@label,'Check out') or contains(@name,'Checkout') or contains(@label,'Checkout')]`
+        ],
+        "checkout button",
+        8
+      );
     }
   },
   {
@@ -542,47 +682,91 @@ const handlers: StepHandler[] = [
       }
       await pause(2500);
       await driver.execute("mobile: tap", { x: 160, y: 323 });
-      await clickIfVisible(`~Done`);
+      await closeKeyboardIfVisible();
     }
   },
   {
     pattern: /^user enters card details and closes keyboard$/i,
     run: async () => {
-      const continueButtons = await $$(`//*[@name='Continue to payment' or @label='Continue to payment' or contains(@name,'Continue')]`);
-      if ((await continueButtons.length) > 0) {
-        await continueButtons[0].click();
-        await pause(1400);
-      }
+      await continueToPaymentIfNeeded();
 
-      await typeSelector(`//*[@name='Card number' or contains(@value,'Card number')]`, "1");
+      const cardField = await firstVisibleElementWithSwipe(
+        [`//*[@name='Card number' or contains(@value,'Card number') or contains(@label,'Card number')]`],
+        "card number field",
+        8
+      );
+      await cardField.click();
+      await cardField.setValue(process.env.SHOPIFY_TEST_CARD_NUMBER || "1");
       const future = new Date();
       future.setMonth(future.getMonth() + Math.floor(Math.random() * 60) + 1);
       const expiry = `${String(future.getMonth() + 1).padStart(2, "0")}/${future.getFullYear()}`;
-      await typeSelector(`//*[@name='Expiration date' or contains(@value,'Expiration date')]`, expiry);
-      await typeSelector(`//*[@name='Security code' or contains(@value,'Security code')]`, String(Math.floor(100 + Math.random() * 900)));
-      await clickIfVisible(`~Done`);
+      const expiryField = await firstVisibleElementWithSwipe(
+        [`//*[@name='Expiration date' or contains(@value,'Expiration date') or contains(@label,'Expiration date')]`],
+        "expiration date field",
+        5
+      );
+      await expiryField.click();
+      await expiryField.setValue(expiry);
+      const securityCodeField = await firstVisibleElementWithSwipe(
+        [`//*[@name='Security code' or contains(@value,'Security code') or contains(@label,'Security code')]`],
+        "security code field",
+        5
+      );
+      await securityCodeField.click();
+      await securityCodeField.setValue(String(Math.floor(100 + Math.random() * 900)));
+      await closeKeyboardIfVisible();
     }
   },
   {
     pattern: /^user clicks pay now button$/i,
     run: async () => {
-      await tapSelector(`~Pay now`);
+      await clickFirstVisibleWithSwipe([`~Pay now`, `//*[@name='Pay now' or @label='Pay now' or contains(@name,'Pay now')]`], "Pay now button", 8);
     }
   },
   {
     pattern: /^user clicks on track my order button from thank you page$/i,
     run: async () => {
-      await tapSelector(`//XCUIElementTypeButton[contains(@name,'Track My Order')]`);
+      await clickFirstVisibleWithSwipe(
+        [
+          `//XCUIElementTypeButton[contains(@name,'Track My Order') or contains(@label,'Track My Order')]`,
+          `//*[contains(@name,'Track My Order') or contains(@label,'Track My Order')]`
+        ],
+        "Track My Order button",
+        10
+      );
     }
   },
   {
     pattern: /^user selects first business and clicks buy again$/i,
     run: async () => {
-      await tapSelector(`//XCUIElementTypeStaticText[@name='Iomdnewgen21']`);
+      await clickFirstVisibleWithSwipe(
+        [
+          `//XCUIElementTypeStaticText[@name='Iomdnewgen21']`,
+          `//*[contains(@name,'Iomdnewgen21') or contains(@label,'Iomdnewgen21')]`
+        ],
+        "Iomdnewgen21 business",
+        8
+      );
       await pause(3000);
-      await tapSelector(`(//XCUIElementTypeStaticText[@name='The Compare at Price Snowboard'])[1]`);
+      await clickFirstVisibleWithSwipe(
+        [
+          `(//XCUIElementTypeStaticText[@name='The Compare at Price Snowboard'])[1]`,
+          `//*[contains(@name,'The Compare at Price Snowboard') or contains(@label,'The Compare at Price Snowboard')]`,
+          `//*[contains(@name,'Snowboard') or contains(@label,'Snowboard')]`
+        ],
+        "Buy Again product",
+        8
+      );
       await pause(5000);
-      await tapSelector(`//XCUIElementTypeStaticText[@name='  Buy again']`);
+      await clickFirstVisibleWithSwipe(
+        [
+          `//XCUIElementTypeStaticText[@name='  Buy again']`,
+          `//*[contains(@name,'Buy again') or contains(@label,'Buy again') or contains(@name,'Buy Again') or contains(@label,'Buy Again')]`
+        ],
+        "Buy again control",
+        8
+      );
+      await pause(2000);
     }
   },
   {
@@ -671,6 +855,10 @@ const handlers: StepHandler[] = [
     pattern: /^user launches the website ".*"$/i,
     run: async (_match, parameters) => {
       const url = firstValue(parameters);
+      if (ios()) {
+        await driver.activateApp(env.ios.safariBundleId);
+        await pause(1000);
+      }
       await browser.url(url);
     }
   },
