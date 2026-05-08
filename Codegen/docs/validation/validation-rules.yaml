@@ -1,0 +1,54 @@
+version: 1
+source_of_truth:
+  ios_immutable: true
+  android_regeneratable: true
+execution_order:
+  - step01_android_base
+  - step02_node_base
+  - step03_splash_onboarding
+  - step04_tabs_and_home_page
+  - step05_assistant_tab
+  - step06_email_screens
+  - step07_forward_reply_email
+  - step08_settings_import_emails
+  - step09_offers_tab
+  - step10_orders_tab
+  - step11_import_passwords
+  - step12_search_emails
+  - step13_backup_restore
+universal_checks:
+  - gradle_help_sync
+  - build_pass
+  - run_readiness
+  - scope_integrity
+  - learnings_append_only
+  - verification_evidence_logged
+  - snapshot_gate_when_available
+  - remote_config_text_parity_when_in_scope
+  - step04_welcome_email_runtime_parity
+  - backup_restore_cross_instance_when_in_scope
+ui_parity:
+  ios_first_then_snapshots: true
+  pixel_by_pixel_mandatory: true
+  acceptance_target_percent: 100
+  minimum_auto_traversal_percent: 90
+image_parity:
+  exact_ios_assets_required: true
+  placeholders_allowed_when_ios_asset_exists: false
+  random_or_generated_substitutes_allowed: false
+flavors:
+  allowed: [dev, qa, prod]
+  forbid_release_flavor_name: true
+version_parity:
+  android_matches_ios: true
+notes:
+  canonical_human_readable_checklist: Codegen/docs/validation/checklist.md
+backup_restore_parity:
+  room_payload_required: true
+  secure_store_payload_required: true
+  cross_instance_restore_required: true
+  per_snapshot_match_logging_required: true
+step04_runtime_parity:
+  room_backed_welcome_email_required: true
+  welcome_email_webview_bridge_required: true
+  iomd_app_custom_scheme_actions_required: [back-btn, share-btn, copy-my-token]

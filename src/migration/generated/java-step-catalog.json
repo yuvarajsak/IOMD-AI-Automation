@@ -1,0 +1,1598 @@
+[
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "Then",
+    "expression": "user closes applitools eyes after validation",
+    "methodName": "userCloseEyestoValidate"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates Allow popup screen on launching the application",
+    "methodName": "userChecksAllowPopupScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates splash screen of the application",
+    "methodName": "userChecksSplashScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates checkbox screen",
+    "methodName": "userChecksCheckboxScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates BeginSetup screen",
+    "methodName": "userChecksBeginSetupScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates Setup step1 screen",
+    "methodName": "userChecksSetupstep1Screen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates tell your friends screen",
+    "methodName": "userChecksTellyourFriendsScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates Setup step2 screen",
+    "methodName": "userChecksSetupstep2Screen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user enables extension and switch back to the app",
+    "methodName": "userEnablesExtandSwitchtoApp"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates Enables extension screen",
+    "methodName": "userValidatesExtensionEnabledScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates animated cards in the homepage",
+    "methodName": "userValidatesAnimatedCardsInTheHomepage"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates forward email screen on welcome email",
+    "methodName": "userValidatesForwardEmailScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates Business Tab screen",
+    "methodName": "userValidatesBusinessTabScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates Interaction Tab screen",
+    "methodName": "userValidatesInteractionTabScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates Messages Tab screen",
+    "methodName": "userValidatesMessagesTabScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates Profile Information screen",
+    "methodName": "userValidatesProfileTabScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates Settings screen",
+    "methodName": "userValidatesSettingsScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates ShowMeMagic in Settings screen",
+    "methodName": "userValidatesShowMeMagicInSettingsScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/AppliTools_Steps.java",
+    "annotation": "When",
+    "expression": "user validates Credentials in Settings screen",
+    "methodName": "userValidatesSavedCredentialsInSettingsScreen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "User verifies the display of the no profile found message after entering invalid details in the user page",
+    "methodName": "ValidaytesthedisplayofthemessageAlertAsUserIsNotDisplaying"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "User verifies the display of the enter valid email id alert message popup after entering mail id in incorrect format",
+    "methodName": "userValidatesTheDisplayOfIncorrectMailIdErrorMessageAfterEnteringTheincorrectDetails"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user fills address for skullcandy",
+    "methodName": "user_fills_address_for_skullcandy"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enables the extension and verifies the expected details are present for the page",
+    "methodName": "userVerifiesTheExtensionIsGettingEnabledAndVerifesRequiredDetailsIsGettingDisplayedForThePage"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user verifies the details are getting entered in the correct field as expected",
+    "methodName": "userVerifiesTheEnteredDetailsAreGettingDisplayedAndEnteredInTheCorrectField"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user selects the value from the extension and clicks on the fill button",
+    "methodName": "userSelectsTheDetailsAndClicksOnTheFillButton"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user clicks create account button",
+    "methodName": "user_clicks_create_account_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user enters password in the signup page of coravin",
+    "methodName": "user_enters_password_in_the_signup_page_of_coravin"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user enters password in the signup page of Ecoya",
+    "methodName": "user_enters_password_in_the_signup_page_of_ecoya"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user enters password in the signup page of GoodBatch",
+    "methodName": "user_enters_password_in_the_signup_page_of_goodbatch"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user enters password in the signup page of Expedia",
+    "methodName": "user_enters_password_in_the_signup_page_of_expedia"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user enters password in the signup page of Etsy",
+    "methodName": "user_enters_password_in_the_signup_page_of_etsy"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user enters password in the signup page of nytimes",
+    "methodName": "user_enters_password_in_the_signup_page_of_nytimes"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks on the signInOrSignUpButton in the coravin website",
+    "methodName": "user_clicks_on_the_signinorsignupbutton_in_the_coravin_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user verifies the details are getting entered as expected in the field box",
+    "methodName": "userVerifiesThedetailsAreGettingAsExpectedInTheFieldBox"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user selects the first product in coravin for checking out",
+    "methodName": "when_user_selects_the_first_product_in_coravin_for_checking_out"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user selects the first product in tedbaker for checking out",
+    "methodName": "when_user_selects_the_first_product_in_tedbaker_for_checking_out"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user verifies the display of the autofill det ails are entered as expected",
+    "methodName": "user_verifies_the_display_of_the_autofill_details_are_entered_as_expected"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user clicks on the sign in button",
+    "methodName": "user_clicks_on_the_sign_in_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the autofill extension and verifies no details is getting displayed",
+    "methodName": "userValidatesTheDisplayOfTheAutofillDetailsAreGettingDisplayedAsExpected"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks on the signIn button",
+    "methodName": "userClicksOnTheSignInButton"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user clicks on the checkout Icon and verifies the product",
+    "methodName": "userVerifiesTheCheckoutIconAndClicksOnIt"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks on the continue to checkout button in checkout page",
+    "methodName": "userClicksOnContinueToCheckoutButtonInTheCheckoutPage"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user enters the email in the dropdown box in email field",
+    "methodName": "userEntersTheEmailFieldInTheDropDownBox"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks on the continue button",
+    "methodName": "userClicksonTheContinueButton"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user clicks on the login button in the new york times",
+    "methodName": "clicksOnLoginButtonOnNewYorkTimes"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user clicks on the login extension button",
+    "methodName": "userClickSonTheButtonToEnableTheSignUpPage"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user clicks on the go to site button",
+    "methodName": "user_clicks_on_the_go_to_site_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user accepts the accept all cookies button",
+    "methodName": "user_accepts_the_accept_all_cookies_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "User clicks on the signup button",
+    "methodName": "user_clicks_on_the_signup_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks on the email input box",
+    "methodName": "userClicksOnTheEmailInputBox"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user clicks on the enter using password link",
+    "methodName": "userClickOnEnterUsingPasswordLink"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user clicks on the cart button",
+    "methodName": "userClicksOnTheCartButton"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks on the checkout button in the website",
+    "methodName": "userClicksOnTheCheckoutButton"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user selects the product in Curative Lifestyle",
+    "methodName": "userClicksAndSelectsTheWine"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "User clicks on the add to cart button",
+    "methodName": "userClicksOnTheAddToCartButton"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user clicks on the continue and payment to the product button",
+    "methodName": "userClicksOnThePaymentAndClickingonTheContinueButton"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user switches to webview content and verifies the element and add the product to the cart",
+    "methodName": "userValidatesAndSwitchesToTheContentAddProductToTheCart"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user verifies the display of buisnessname and clicks on it",
+    "methodName": "userVerifiersTheDisplayOfTheBuisnessNameAndClicksOnIt"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks inside the buisness and verifies the given extension details are present",
+    "methodName": "userClicksThebuisnessAndVerifiesTheDetailsPresentInside"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the given extension details are present for the extension",
+    "methodName": "userverifiesthegivenextensiondetailsarepresentfortheextension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks on the enter button in the application",
+    "methodName": "userClicksOnTheEnterButtonInTheWebPage"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user verifies the display of the email count text",
+    "methodName": "userValidatesTheDispayOfTheEmailCountValues"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user clicks the mail and verifies the details present inside the tab",
+    "methodName": "validatesTheDisplayOfTheForgotPasswordLinAndClicsOnItandVerifiesTheDetailsPresentInsideTheTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the display of the forgot email",
+    "methodName": "validatesTheDisplayOfTheForgotEmailLink"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user verifes the display of the last seven days transaction header",
+    "methodName": "user_verifes_the_display_of_the_last_seven_days_transaction_header"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user verifies the display of earlier transaction header",
+    "methodName": "user_verifies_the_display_of_earlier_transaction_header"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the number of transaction in the last seven days",
+    "methodName": "user_verifies_the_number_of_transaction_in_the_last_seven_days"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the number of transaction happened in earier transaction",
+    "methodName": "user_verifies_the_number_of_transaction_happened_in_earier_transaction"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks on the loginButton in the fivemarys website",
+    "methodName": "user_clicks_on_the_loginbutton_in_the_fivemarys_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the autofill details are entered as expected in the fivemarys website",
+    "methodName": "user_verifies_the_autofill_details_are_entered_as_expected_in_the_fivemarys_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the autofill details are entered in forgetpassword textbox as expected in the fivemarys website",
+    "methodName": "user_verifies_the_autofill_details_are_entered_in_forgetpassword_textbox_as_expected_in_the_fivemarys_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user selects first category from product category section",
+    "methodName": "user_selects_first_category_from_product_category_section"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user clicks the first product to checkout",
+    "methodName": "user_clicks_the_first_product_to_checkout"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the autofill details for checkout are entered as expected in fivemarys website",
+    "methodName": "user_verifies_the_autofill_details_for_checkout_are_entered_as_expected_in_fivemarys_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user clicks checkout option in fivemarys website",
+    "methodName": "user_clicks_checkout_option_in_fivemarys_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks Forget Password  button in the fivemarys website",
+    "methodName": "user_clicks_forget_password_button_in_the_fivemarys_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks Add to cart button in fivemarys website",
+    "methodName": "user_clicks_add_to_cart_button_in_fivemarys_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user clicks Continue to Shipping button in fivemarys website",
+    "methodName": "user_clicks_continue_to_shipping_button_in_fivemarys_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user clicks Continue to Payment button in fivemarys website",
+    "methodName": "user_clicks_continue_to_payment_button_in_fivemarys_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user Fills the card details in Fivemarys website",
+    "methodName": "user_fills_the_card_details_in_fivemarys_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user clicks Paynow button in Fivemarys website",
+    "methodName": "user_clicks_paynow_button_in_fivemarys_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user scroll down to Zip code field and enters value",
+    "methodName": "user_scroll_to_Zipcode_in_the_mylaporeexpress_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks on the MyAccount icon in the MylaporeExpress website",
+    "methodName": "user_clicks_on_the_myaccount_icon_in_the_mylaporeexpress_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details are filled as expected for Mylapore express",
+    "methodName": "user_verifies_the_auto_fill_details_are_filled_as_expected_for_mylapore_express"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user clicks Login button in Mylapore express",
+    "methodName": "user_clicks_login_button_in_mylapore_express"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks Signup button in the MylaporeExpress website",
+    "methodName": "user_clicks_Signup_button_in_the_mylaporeexpress_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the autofill details are entered in forgetpassword textbox as expected in the MylaporeExpress website",
+    "methodName": "user_verifies_the_autofill_details_are_entered_in_forgetpassword_textbox_as_expected_in_the_mylaporeexpress_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters ZipCode and Check for delivery",
+    "methodName": "user_enters_zipcode_and_check_for_delivery"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user selects day and selects the first custom option",
+    "methodName": "user_selects_monday_and_selects_the_first_custom_option"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks Add To Cart button in MylaporeExpress",
+    "methodName": "user_clicks_add_to_cart_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters Phonenumber for Mylapore Express",
+    "methodName": "user_enters_PhoneNumber"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters Phonenumber for Login In Mylapore Express",
+    "methodName": "user_enters_PhoneNumber_In_Login"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user agrees shipping terms and clicks Checkout button",
+    "methodName": "user_agrees_shipping_terms_and_clicks_checkout_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user enters Qty in first four dishes",
+    "methodName": "user_enters_qty_in_first_four_dishes"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user Fills the card details in Mylapore website",
+    "methodName": "user_fills_the_card_details_in_mylapore_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user Fills the card details in CurativeLifestyle website",
+    "methodName": "user_fills_the_card_details_in_CurativeLifestyle_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user Fills the card details in Coravin website",
+    "methodName": "user_fills_the_card_details_in_coravin_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user Fills the card details in TedBaker website",
+    "methodName": "user_fills_the_card_details_in_tedbaker_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks Continue button in Mylapore express",
+    "methodName": "user_clicks_continue_button_in_mylapore_express"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks Continue to Payment button in Mylapore express",
+    "methodName": "user_clicks_continue_to_payment_button_in_mylapore_express"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user verifies the auto fill details are filled as expected in the checkout page for Mylapore express",
+    "methodName": "user_verifies_the_auto_fill_details_are_filled_as_expected_in_the_checkout_page_for_mylapore_express"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user clicks Paynow button in Mylapore website",
+    "methodName": "user_clicks_paynow_button_in_mylapore_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user Fills the card details in SVBConnect website",
+    "methodName": "user_fills_the_card_details_in_SVBConnect_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "I fill Address for Goodeggs",
+    "methodName": "i_fill_address_for_goodeggs"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user Fills the card details in GoodEggs website",
+    "methodName": "user_fills_the_card_details_in_goodeggs_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details are filled as expected for GoodEggs",
+    "methodName": "user_verifies_the_auto_fill_details_are_filled_as_expected_for_goodeggs"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks Forget Password button in the GoodEggs website",
+    "methodName": "user_clicks_forget_password_button_in_the_goodeggs_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user launches the GoodEggs Product URL",
+    "methodName": "user_launches_the_goodeggs_product_url"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user close the popup in Ecoya Website",
+    "methodName": "user_close_the_popup_in_ecoya_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user selects first product from PorterAndYork application",
+    "methodName": "user_selects_first_product_from_porterandyork_application"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user Fills the card details in PorterAndYork website",
+    "methodName": "user_fills_the_card_details_in_porterandyork_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user selects first product from SkullCandy application",
+    "methodName": "user_selects_first_product_from_skullcandy_application"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user Fills the card details in SkullCandy website",
+    "methodName": "user_fills_the_card_details_in_skullcandy_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user close the popup in Alibaba website",
+    "methodName": "user_close_the_popup_in_alibaba_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "And",
+    "expression": "user scroll to contact info in schwab application",
+    "methodName": "user_scroll_to_contact_info_in_schwab_application"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters random email in Email Id textbox for booking website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_booking_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters random email in Email Id textbox for airbnb website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_airbnb_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user fills password for booking website",
+    "methodName": "user_fills_password_for_booking_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user fills Email for ACF website",
+    "methodName": "user_fills_email_for_acf_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in login page for airnewzealand website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_airnewzealand_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in signup page for amazon website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_amazon_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in signup page for elementor website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_elementor_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in signup page for BlueStarCoffee website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_BlueStarCoffee_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in Login page for ClipperCard website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_ClipperCard_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user clicks close pop in deadlyponies",
+    "methodName": "user_clicks_close_pop_in_deadlyponies"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in signin page for deadlyponies website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_deadlyponies_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in signin page for Ecoya website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_ecoya_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in signin page for Travelers website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_travelers_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in signin page for AllState website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_AllState_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in signin page for Nationwide website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_Nationwide_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in signup page for Nationwide website",
+    "methodName": "user_enters_data_for_signup_in_Nationwide_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters the data for guest fidelity signup",
+    "methodName": "user_enters_the_data_for_guest_fidelity_signup"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user enters data in signin page for UnitedHealth website",
+    "methodName": "user_enters_random_email_in_email_id_textbox_for_UnitedHealth_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "Then",
+    "expression": "user verifies the business detail page for coravin",
+    "methodName": "user_verifies_the_business_detail_page_for_coravin"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user scroll to newsletter signup form",
+    "methodName": "user_scroll_to_newsletter_signup_form"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/Steps_IOMDHomepage.java",
+    "annotation": "When",
+    "expression": "user selects address from dropdown in Tedbaker",
+    "methodName": "user_selects_address_from_dropdown_in_tedbaker"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Given",
+    "expression": "user launches the application",
+    "methodName": "userlaunchestheapplication"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user enables the Extension",
+    "methodName": "user_enables_the_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user select Address from Extension",
+    "methodName": "user_select_address_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user select Other Address from Extension",
+    "methodName": "user_select_other_address_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks Fill button from Extension",
+    "methodName": "user_clicks_fill_button_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects Phonenumber from Extension",
+    "methodName": "user_selects_phonenumber_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects Anonymous Email from Extension",
+    "methodName": "user_selects_anonymous_email_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects Anonymous name from Extension",
+    "methodName": "user_selects_anonymous_name_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects User name from Extension",
+    "methodName": "user_selects_user_name_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user selects card details",
+    "methodName": "user_selects_card_details_and_clicks_fill_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user accepts the update popup for saving cards in IOMD Profile",
+    "methodName": "user_accepts_the_update_popup_for_saving_cards_in_iomd_profile"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user accepts the update popup for existing cards in IOMD Profile",
+    "methodName": "user_accepts_the_update_popup_for_existing_cards_in_iomd_profile"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user accepts the popup",
+    "methodName": "user_accepts_the_popup"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user accepts the save credential popup for autologin in IOMD Profile",
+    "methodName": "user_accepts_the_save_credential_popup_for_autologin_in_iomd_profile"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user accepts the save Signup credential popup for autologin in IOMD Profile",
+    "methodName": "user_accepts_the_save_signup_credential_popup_for_autologin_in_iomd_profile"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the card details is saved in IOMD Application",
+    "methodName": "user_verifies_the_card_details_is_saved_in_iomd_application"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user switches back to the IOMD application",
+    "methodName": "UserSwitchBacksToTheIomdApplication"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user switches to IOMD Admin application and delete the created tokenised data",
+    "methodName": "user_switches_to_iomd_admin_application_and_delete_the_created_tokenised_data"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user navigates to the settings application and enables the extension",
+    "methodName": "user_navigates_to_the_settings_application"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user navigates to the safari application",
+    "methodName": "user_navigates_to_the_safari_application"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user completes onboarding flow",
+    "methodName": "user_completes_onboarding_flow"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user completes onboarding flow with animation",
+    "methodName": "user_completes_onboarding_flow_with_animation"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user skips onboarding flow",
+    "methodName": "user_skips_onboarding_flow"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user deletes node application",
+    "methodName": "user_deletes_node_application"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user completes onboarding flow with card data",
+    "methodName": "user_completes_onboarding_flow_with_card_data"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user contiunes onboarding flow from deeplink",
+    "methodName": "user_continues_onboarding_flow_from_deeplink"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user completes onboarding flow with card data and Validation",
+    "methodName": "user_completes_onboarding_flow_with_card_data_validation"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user completes onboarding flow with invalid address",
+    "methodName": "user_completes_onboarding_flow_with_invalid_address"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user completes onboarding flow with validation",
+    "methodName": "user_completes_onboarding_flow_with_validation"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user validates Enable extension page",
+    "methodName": "user_validates_enable_extension_page"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user validates ShowMeMagic Page",
+    "methodName": "user_validates_showmemagic_page"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user enters tokenised Email",
+    "methodName": "user_enters_tokenised_email"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks on the fetch button",
+    "methodName": "user_clicks_on_the_fetch_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks on the save tokenized email button",
+    "methodName": "user_clicks_on_the_save_tokenized_email_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks on the check your message button",
+    "methodName": "user_clicks_on_the_check_your_message_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user handles Save Password Popup from IOMD Application",
+    "methodName": "user_handles_save_password_popup_from_iomd_application"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies and clicks on the business tab",
+    "methodName": "userValidatesAndClicksOnTheBusinessTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies and clicks on the message tab",
+    "methodName": "userValidatesAndClicksOnTheMessageTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies and clicks on the Interactions tab",
+    "methodName": "userValidatesAndClicksOnTheTransactionTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks on the profile tab",
+    "methodName": "userClicksOnTheProfileTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks on the settings tab",
+    "methodName": "userClicksOnTheSettingsTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks on the home tab",
+    "methodName": "userClicksOnTheHomeTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies Login from interaction tab",
+    "methodName": "userValidatesAndClicksOnLoginFromInteractionTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies PwdChange from interaction tab",
+    "methodName": "userValidatesAndClicksOnPwdChangeFromInteractionTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies Others from interaction tab",
+    "methodName": "userValidatesAndClicksOnOthersFromInteractionTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies Register from interaction tab",
+    "methodName": "userValidatesAndClicksOnRegisterFromInteractionTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies Checkout from interaction tab",
+    "methodName": "userValidatesAndClicksOnCheckoutFromInteractionTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user clicks on the purchase tab",
+    "methodName": "userClicksOnPurchaseTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies Login-Guest from interaction tab",
+    "methodName": "userValidatesAndClicksOnGuestLoginFromInteractionTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies and clicks on Payment from interaction tab",
+    "methodName": "userValidatesAndClicksOnPaymentFromInteractionTab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user verifies the Anonymous email data is captured in the IOMD Transactions",
+    "methodName": "user_verifies_the_anonymous_email_data_is_captured_in_the_iomd_transactions"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user verifies the Anonymous phone data is captured in the IOMD Transactions",
+    "methodName": "user_verifies_the_anonymous_phone_data_is_captured_in_the_iomd_transactions"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user validates the homescreen data of IOMD",
+    "methodName": "user_validates_the_homescreen_data_of_iomd"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user validates the data after logging in with tokenized email of IOMD",
+    "methodName": "user_validates_the_data_after_logging_in_with_tokenized_email_of_iomd"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user validates the Email data from IOMD support",
+    "methodName": "user_validates_the_email_data_from_iomd_support"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks on the show me the magic button",
+    "methodName": "user_clicks_on_the_show_me_the_magic_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks on the OK Got It button",
+    "methodName": "user_clicks_on_the_OKGotIt_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks IOMD back button",
+    "methodName": "user_clicks_on_iomd_back_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user verifies data in Tokenised and Personal info page of IOMD",
+    "methodName": "user_verifies_data_in_tokenised_and_personal_info_page_of_iomd"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks on the save and show me the magic button",
+    "methodName": "user_clicks_on_the_save_and_show_me_the_magic_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user fills tokenised First and Last name",
+    "methodName": "user_fills_tokenised_first_and_last_name"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user fills tokenised personal information",
+    "methodName": "user_fills_tokenised_personal_information"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user fills tokenised personal information with invalid address",
+    "methodName": "user_fills_tokenised_personal_information_with_invalid_address"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user validates personal information in IOMD Homepage",
+    "methodName": "user_validates_personal_information_in_iomd_homepage"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user validates tokenised information in IOMD Homepage",
+    "methodName": "user_validates_tokenised_information_in_iomd_homepage_for_something"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects tokenised Email from Extension",
+    "methodName": "user_selects_tokenised_email_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects tokenised Username from Extension",
+    "methodName": "user_selects_tokenised_username_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects tokenised Address from Extension",
+    "methodName": "user_selects_tokenised_address_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects tokenised Phonenumber from Extension",
+    "methodName": "user_selects_tokenised_phonenumber_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects personal Email from Extension",
+    "methodName": "user_selects_personal_email_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects personal Username from Extension",
+    "methodName": "user_selects_personal_username_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects personal Address from Extension",
+    "methodName": "user_selects_personal_address_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user selects personal Phonenumber from Extension",
+    "methodName": "user_selects_personal_phonenumber_from_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for tokenised Email are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_tokenised_mail_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for tokenised Username are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_tokenised_username_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for tokenised Zipcode are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_tokenised_zipcode_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for tokenised Phonenumber are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_tokenised_phonenumber_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for tokenised Phonenumber with format are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_tokenised_phonenumber_with_format_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for tokenised FirstName are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_tokenised_firstname_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for tokenised LastName are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_tokenised_lastname_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for personal Email are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_personal_email_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for personal Username are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_personal_username_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for personal Zipcode are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_personal_zipcode_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for personal Address1 are filled as expected for the website",
+    "methodName": "user_verifies_the_auto_fill_details_for_personal_address1_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for personal Phonenumber are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_personal_phonenumber_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for card number are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_card_number_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for personal Phonenumber with format are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_personal_phonenumber_with_format_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for personal FirstName are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_personal_firstname_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for personal LastName are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_personal_lastname_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for Email are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_email_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for FirstName are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_firstname_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for LastName are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_lastname_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for PhoneNumber are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_PhoneNumber_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for PhoneNumber with format in the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_PhoneNumber_with_format_in_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for Other PhoneNumber are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_Other_PhoneNumber_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for ZipCode are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_zipcode_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for Country are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_country_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for City are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_city_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the auto fill details for State are filled as expected for the Website",
+    "methodName": "user_verifies_the_auto_fill_details_for_state_are_filled_as_expected_for_the_website"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user enters random email in Email Id textbox",
+    "methodName": "user_enters_random_email_in_email_id_textbox"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user refresh the page",
+    "methodName": "user_refresh_the_page"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies the recent record under purchase tab",
+    "methodName": "user_verifies_the_recent_record_under_purchase_tab"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user clicks Node button for payment in Woocommerce site",
+    "methodName": "user_clicks_node_button_for_payment_in_woocommerce_site"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user clicks Node button for payment in Shopify site",
+    "methodName": "user_clicks_node_button_for_payment_in_shopify_site"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "And",
+    "expression": "user clicks Node button for payment in Shopify site from Cart page",
+    "methodName": "user_clicks_node_button_for_payment_in_shopify_site_from_cart_page"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user enters password in the form",
+    "methodName": "user_enters_password_in_the_form"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user enters email in the form",
+    "methodName": "user_enters_email_in_the_form"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user enters valid email in Nytimes",
+    "methodName": "user_enters_random_email_in_nytimes"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user enters the store password",
+    "methodName": "user_enters_the_store_password"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user enables node extension",
+    "methodName": "user_enables_node_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user selects first product and proceeds to checkout",
+    "methodName": "user_selects_first_product_and_proceeds_to_checkout"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user enters checkout contact details and selects suggested address",
+    "methodName": "user_enters_checkout_contact_details_and_selects_suggested_address"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user enters card details and closes keyboard",
+    "methodName": "user_enters_card_details_and_closes_keyboard"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "Then",
+    "expression": "user clicks Pay Now button",
+    "methodName": "user_clicks_pay_now_button"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user clicks on track my order button from thank you page",
+    "methodName": "user_clicks_on_track_my_order_button_from_thank_you_page"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/commonUtilitySteps.java",
+    "annotation": "When",
+    "expression": "user selects first business and clicks buy again",
+    "methodName": "user_selects_first_business_and_clicks_buy_again"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "And",
+    "expression": "user verifies the placed order is displayed in IOMDPay Admin",
+    "methodName": "user_verifies_the_placed_order_is_displayed_in_iomdpay_admin"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "When",
+    "expression": "user validates data inside IOMD Pay Extension",
+    "methodName": "user_validates_data_inside_iomd_pay_extension"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "When",
+    "expression": "user select invalid address from list",
+    "methodName": "user_select_invalid_address_from_list"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "And",
+    "expression": "user verifies the amount with shipping cost",
+    "methodName": "user_veifies_the_amount_with_shipping_cost"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "And",
+    "expression": "user verifies the amount with shipping cost for Woocommerce",
+    "methodName": "user_veifies_the_amount_with_shipping_cost_for_woo"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "And",
+    "expression": "user verifies the amount with shipping cost for Woocommerce with discount",
+    "methodName": "user_veifies_the_amount_with_shipping_cost_for_woo_with_discount"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "And",
+    "expression": "user verifies the amount with shipping cost for Shopify",
+    "methodName": "user_veifies_the_amount_with_shipping_cost_for_Shopify"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "And",
+    "expression": "user verifies the amount with shipping cost for Shopify with discount",
+    "methodName": "user_veifies_the_amount_with_shipping_cost_for_Shopify_with_discount"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "And",
+    "expression": "user verifies auto-filled data in Payment page",
+    "methodName": "user_verifies_auto_filled_Card_data_in_Payment_page"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "Then",
+    "expression": "user enters the password and clicks on the enter button to proceed further",
+    "methodName": "userEntersThePasswordandClicksOnTheEnterButton"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "Then",
+    "expression": "user fills data in checkout page for NodenextGen",
+    "methodName": "userfillsdataincheckoutpageforNodenextGen"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "Then",
+    "expression": "user fills card data in checkout page for BuyAgain",
+    "methodName": "userfillsdataincheckoutpageforBuyAgain"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies deeplink content and clicks on it",
+    "methodName": "userverifiesdeeplinkcontentandclicksonit"
+  },
+  {
+    "file": "../IOMD_MobileAutomation/src/test/java/iomd_stepdef/iomdPaySteps.java",
+    "annotation": "Then",
+    "expression": "user verifies deeplink content for testfairy and clicks on it",
+    "methodName": "userverifiesdeeplinkcontentfortestfairyandclicksonit"
+  }
+]

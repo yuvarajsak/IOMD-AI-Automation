@@ -1,0 +1,10 @@
+[
+  {
+    "file": "iomd_features/cigna.feature",
+    "reason": "No feature block found in the provided Gherkin file."
+  },
+  {
+    "file": "iomd_features/colourpopup.feature",
+    "reason": "No feature block found in the provided Gherkin file."
+  }
+]
