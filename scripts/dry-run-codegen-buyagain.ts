@@ -7,13 +7,14 @@ const stepDefinitionPatterns = [
   /^Codegen Buy Again opens Shopify storefront "([^"]+)"$/,
   /^Codegen Buy Again unlocks the Shopify store$/,
   /^Codegen Buy Again enables the node Safari extension$/,
-  /^Codegen Buy Again opens the Shopify product page$/,
+  /^Codegen Buy Again opens any available Shopify product$/,
   /^Codegen Buy Again adds the product to cart and starts checkout$/,
   /^Codegen Buy Again completes checkout contact details$/,
   /^Codegen Buy Again enters payment details$/,
   /^Codegen Buy Again submits the order$/,
   /^Codegen Buy Again tracks the order from the thank you page$/,
   /^Codegen Buy Again returns to the IOMD app$/,
+  /^Codegen Buy Again purchased product is shown in the node app$/,
   /^Codegen Buy Again product can be ordered again from IOMD$/
 ];
 

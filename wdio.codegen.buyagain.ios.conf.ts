@@ -14,7 +14,7 @@ export const config = {
   cucumberOpts: {
     ...sharedConfig.cucumberOpts,
     require: ["./src/support/hooks.ts", "./src/steps/codegen-onboarding.steps.ts", "./src/steps/codegen-buy-again.steps.ts"],
-    tagExpression: "@codegen and @step14 and @buyagain"
+    tags: "@codegen and @step14 and @buyagain"
   },
   onPrepare: async function () {
     await sharedConfig.onPrepare();

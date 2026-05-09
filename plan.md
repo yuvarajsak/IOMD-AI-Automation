@@ -446,6 +446,44 @@ Blocked:
 
 - Live iOS Codegen Buy Again execution is pending. The legacy failure was at Shopify `Add to cart`; the new Codegen path includes a web-context click fallback, but this still needs a device run to confirm the Safari overlay is handled end to end.
 
+### 2026-05-09
+
+Completed:
+
+- Updated Codegen Buy Again to continue after onboarding without Gmail and to explicitly grant Safari extension website permission, not just toggle the extension.
+- Added Safari permission fallback through iOS Settings: Safari -> Extensions -> node. -> All Websites -> Allow.
+- Changed product selection to open any available Shopify product from `/collections/all` instead of relying on a single hard-coded product.
+- Added purchased-product validation step for the Node app after checkout:
+  - `Then Codegen Buy Again purchased product is shown in the node app`
+- Updated the Buy Again page object to retain the selected product name and reuse it for Node app / Buy Again assertions.
+- Added cart/checkout fallback logic after Add to cart:
+  - first try visible/native checkout controls
+  - then open `/cart`
+  - then open `/checkout`
+- Hardened hidden bottom-of-Safari controls by scrolling low native elements into a safer tap area before coordinate tapping.
+- Ran `npm run dryrun:codegen:buyagain` successfully; 13 Codegen Buy Again steps validated.
+- Ran `npm run typecheck` successfully.
+- Ran `npm run test:codegen:buyagain:ios` live on iOS after the permission and checkout updates.
+- Latest live iOS result: 6 passing, 1 failing, 6 skipped.
+- Passing live steps:
+  - completed onboarding
+  - opened Shopify storefront
+  - unlocked Shopify store
+  - enabled node Safari extension
+  - opened an available Shopify product
+  - added the product to cart and started checkout
+- Reports generated successfully:
+  - `artifacts/reports/extent-report.html`
+  - `artifacts/reports/html-report.html`
+  - `artifacts/allure-results`
+
+Blocked:
+
+- Checkout contact entry is currently blocked because Shopify redirects `/checkout` back to the storefront home page and no email field is present.
+- Failure screenshot confirms the page is the storefront home page with `Shop products`, not the checkout contact form.
+- The likely cause is that Shopify is not retaining the cart item after the native Add to cart interaction, even though the Add to cart step now completes and no longer times out.
+- Payment, order submission, thank-you tracking, Node app purchased-product verification, and Buy Again from Node app remain pending until the checkout page can be reached with a real cart item.
+
 ## Next Actions
 
 Status: Pending
@@ -460,9 +498,12 @@ Status: Pending
 8. Add Step03 persistence checks for onboarding completion / returning-user bypass when the framework has a stable app-data inspection hook.
 9. Start `step04_tabs_and_home_page`.
 10. Continue the remaining Codegen steps in execution order.
-11. Run `npm run test:codegen:buyagain:ios` on the iOS simulator after dry run/typecheck pass.
-12. If live iOS still blocks at Shopify overlay, capture page source/screenshots after extension review and tune the Codegen page object fallback selectors.
-13. Continue legacy Buy Again only for traceability unless the user asks to maintain the legacy generated runner.
+11. For Codegen Buy Again, identify a stable Shopify cart-add mechanism before continuing payment:
+    - preferred: capture product variant id and navigate to `/cart/add?id=<variantId>&quantity=1`
+    - fallback: tune the native Add to cart tap until `/cart` shows the selected product
+12. After cart retention is confirmed, run `npm run test:codegen:buyagain:ios` again and continue through checkout contact, payment, submit order, thank-you tracking, Node app product verification, and Buy Again.
+13. If live iOS still blocks at Shopify checkout, capture page source/screenshots from `/cart` and `/checkout` and update selectors/actions in `src/pages/codegen-buy-again.page.ts`.
+14. Continue legacy Buy Again only for traceability unless the user asks to maintain the legacy generated runner.
 
 ## Framework Rules
 

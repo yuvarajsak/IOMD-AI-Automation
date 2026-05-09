@@ -17,8 +17,8 @@ When("Codegen Buy Again enables the node Safari extension", async function () {
   await codegenBuyAgainPage.enableNodeSafariExtension();
 });
 
-When("Codegen Buy Again opens the Shopify product page", async function () {
-  await codegenBuyAgainPage.openShopifyProductPage();
+When("Codegen Buy Again opens any available Shopify product", async function () {
+  await codegenBuyAgainPage.openAnyAvailableProduct();
 });
 
 When("Codegen Buy Again adds the product to cart and starts checkout", async function () {
@@ -47,4 +47,8 @@ When("Codegen Buy Again returns to the IOMD app", async function () {
 
 Then("Codegen Buy Again product can be ordered again from IOMD", async function () {
   await codegenBuyAgainPage.expectProductCanBeOrderedAgain();
+});
+
+Then("Codegen Buy Again purchased product is shown in the node app", async function () {
+  await codegenBuyAgainPage.expectPurchasedProductShownInNodeApp();
 });

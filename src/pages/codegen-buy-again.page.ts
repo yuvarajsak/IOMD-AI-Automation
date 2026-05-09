@@ -4,7 +4,10 @@ import { codegenOnboardingPage } from "./codegen-onboarding.page";
 
 export class CodegenBuyAgainPage {
   private readonly defaultStorefrontUrl = "https://iomdnewgen21.myshopify.com/";
-  private readonly defaultProductUrl = "https://iomdnewgen21.myshopify.com/products/the-compare-at-price-snowboard";
+  private readonly defaultCollectionUrl = "https://iomdnewgen21.myshopify.com/collections/all";
+  private selectedProductName = "";
+  private iomdBusinessOpened = false;
+  private safariExtensionPermissionGranted = false;
 
   async startFromCompletedOnboarding(): Promise<void> {
     await codegenOnboardingPage.launchFresh();
@@ -61,15 +64,20 @@ export class CodegenBuyAgainPage {
       await nodeToggle.click();
     }
     await this.clickByLabels(["Done"]);
-    await this.handleSafariExtensionPermissionReview(true);
+    await this.grantSafariExtensionPermission();
   }
 
-  async openShopifyProductPage(): Promise<void> {
-    await this.handleSafariExtensionPermissionReview();
-    await browser.url(process.env.SHOPIFY_PRODUCT_URL || this.defaultProductUrl);
+  async openAnyAvailableProduct(): Promise<void> {
+    await this.grantSafariExtensionPermission();
+    await browser.url(process.env.SHOPIFY_PRODUCT_URL || this.defaultCollectionUrl);
     await browser.pause(3000);
-    await this.handleSafariExtensionPermissionReview();
+    await this.grantSafariExtensionPermission();
     await this.closeShopifyDrawerIfOpen();
+    if (!process.env.SHOPIFY_PRODUCT_URL) {
+      await this.selectFirstAvailableProduct();
+    } else {
+      this.selectedProductName = await this.readCurrentProductName();
+    }
   }
 
   async addProductToCartAndStartCheckout(): Promise<void> {
@@ -79,10 +87,13 @@ export class CodegenBuyAgainPage {
       `//*[contains(@name,'Add to cart') or contains(@label,'Add to cart') or contains(@name,'add to cart') or contains(@label,'add to cart')]`
     ], "Add to cart button");
     await browser.pause(2000);
-    await this.clickWebOrNative(["Check out", "Checkout", "CHECK OUT"], [
+    const clickedCheckout = await this.clickWebOrNativeOptional(["Check out", "Checkout", "CHECK OUT"], [
       `//*[@name='Check out' or @label='Check out' or @name='CHECK OUT']`,
       `//*[contains(@name,'Check out') or contains(@label,'Check out') or contains(@name,'Checkout') or contains(@label,'Checkout')]`
     ], "checkout button");
+    if (!clickedCheckout) {
+      await this.openShopifyCheckoutDirectly();
+    }
   }
 
   async completeCheckoutContactDetails(): Promise<void> {
@@ -131,20 +142,32 @@ export class CodegenBuyAgainPage {
 
   async returnToIomdApp(): Promise<void> {
     await driver.activateApp(env.apps.iomdBundleId);
+    this.iomdBusinessOpened = false;
     await browser.pause(3000);
   }
 
+  async expectPurchasedProductShownInNodeApp(): Promise<void> {
+    await this.openIomdBusiness();
+    const productName = this.selectedProductName || "Snowboard";
+    await browser.waitUntil(
+      async () => {
+        const source = await driver.getPageSource();
+        return source.toLowerCase().includes(productName.toLowerCase());
+      },
+      {
+        timeout: 30000,
+        timeoutMsg: `Expected purchased product "${productName}" to be visible in the node app`
+      }
+    );
+  }
+
   async expectProductCanBeOrderedAgain(): Promise<void> {
+    await this.openIomdBusiness();
+    const productName = this.selectedProductName || "Snowboard";
     await this.clickFirstVisibleWithSwipe([
-      `//XCUIElementTypeStaticText[@name='Iomdnewgen21']`,
-      `//*[contains(@name,'Iomdnewgen21') or contains(@label,'Iomdnewgen21')]`
-    ], "Iomdnewgen21 business", 8);
-    await browser.pause(3000);
-    await this.clickFirstVisibleWithSwipe([
-      `(//XCUIElementTypeStaticText[@name='The Compare at Price Snowboard'])[1]`,
-      `//*[contains(@name,'The Compare at Price Snowboard') or contains(@label,'The Compare at Price Snowboard')]`,
+      `//*[contains(@name, ${JSON.stringify(productName)}) or contains(@label, ${JSON.stringify(productName)})]`,
       `//*[contains(@name,'Snowboard') or contains(@label,'Snowboard')]`
-    ], "Buy Again product", 8);
+    ], `purchased product ${productName}`, 8);
     await browser.pause(3000);
     await this.clickFirstVisibleWithSwipe([
       `//XCUIElementTypeStaticText[@name='  Buy again']`,
@@ -201,6 +224,18 @@ export class CodegenBuyAgainPage {
       await this.clickByLabels([label]);
       await browser.pause(500);
     }
+  }
+
+  private async openIomdBusiness(): Promise<void> {
+    if (this.iomdBusinessOpened) {
+      return;
+    }
+    await this.clickFirstVisibleWithSwipe([
+      `//XCUIElementTypeStaticText[@name='Iomdnewgen21']`,
+      `//*[contains(@name,'Iomdnewgen21') or contains(@label,'Iomdnewgen21')]`
+    ], "Iomdnewgen21 business", 8);
+    this.iomdBusinessOpened = true;
+    await browser.pause(3000);
   }
 
   private async firstVisibleElement(selectors: string[], description: string): Promise<WebdriverIO.Element> {
@@ -272,6 +307,16 @@ export class CodegenBuyAgainPage {
     await element.setValue(value);
   }
 
+  private async getElementText(element: WebdriverIO.Element): Promise<string> {
+    for (const attribute of ["name", "label", "value"]) {
+      const value = String((await element.getAttribute(attribute)) ?? "").trim();
+      if (value) {
+        return value;
+      }
+    }
+    return "";
+  }
+
   private async closeKeyboardIfVisible(): Promise<void> {
     if (await this.clickIfVisible(`//*[@name='Done' or @label='Done']`)) {
       return;
@@ -307,6 +352,89 @@ export class CodegenBuyAgainPage {
     await browser.pause(1000);
   }
 
+  private async grantSafariExtensionPermission(): Promise<void> {
+    if (this.safariExtensionPermissionGranted) {
+      return;
+    }
+
+    if (await this.acceptSafariPermissionPrompt()) {
+      this.safariExtensionPermissionGranted = true;
+      return;
+    }
+
+    await this.openSafariExtensionMenuIfPossible();
+    if (await this.acceptSafariPermissionPrompt()) {
+      this.safariExtensionPermissionGranted = true;
+      return;
+    }
+
+    if (await this.grantSafariExtensionPermissionInSettings()) {
+      this.safariExtensionPermissionGranted = true;
+      return;
+    }
+    if (this.isIos()) {
+      await driver.activateApp(env.ios.safariBundleId);
+      await browser.pause(1200);
+    }
+    this.safariExtensionPermissionGranted = await this.acceptSafariPermissionPrompt();
+  }
+
+  private async acceptSafariPermissionPrompt(): Promise<boolean> {
+    const clickedReview = await this.clickByLabels(["Review"]);
+    if (!clickedReview) {
+      await this.clickByLabels(["node.", "node", "IOMDAutofill"]);
+    }
+
+    const allowed = await this.clickByLabels([
+      "Always Allow on Every Website",
+      "Always Allow on This Website",
+      "Always Allow",
+      "Allow on Every Website",
+      "Allow"
+    ]);
+    await this.clickByLabels(["Done", "OK"]);
+    await browser.pause(1000);
+    return allowed;
+  }
+
+  private async openSafariExtensionMenuIfPossible(): Promise<void> {
+    try {
+      const menu = await this.firstVisibleElement([`~PageFormatMenuButton`, `//*[@name='PageFormatMenuButton']`], "Safari page menu button");
+      await menu.click();
+      await browser.pause(700);
+      await this.clickByLabels(["node.", "node", "IOMDAutofill", "Manage Extensions"]);
+      await browser.pause(700);
+    } catch {
+      // The page menu is not always visible while Safari is still transitioning.
+    }
+  }
+
+  private async grantSafariExtensionPermissionInSettings(): Promise<boolean> {
+    if (!this.isIos()) {
+      return false;
+    }
+    try {
+      await driver.activateApp(env.ios.settingsBundleId);
+      await browser.pause(1200);
+      await this.clickByLabels(["Apps"]);
+      await this.clickByLabels(["Safari"]);
+      await this.clickByLabels(["Extensions"]);
+      await this.clickByLabels(["node.", "node", "IOMDAutofill"]);
+      await this.clickIfVisible(`//XCUIElementTypeSwitch[@value='0']`);
+      await this.clickByLabels(["All Websites", "All websites", "iomdnewgen21.myshopify.com"]);
+      const allowed = await this.clickByLabels(["Allow"]);
+      await browser.pause(1000);
+      if (allowed) {
+        await driver.activateApp(env.ios.safariBundleId);
+        await browser.pause(1200);
+      }
+      return allowed;
+    } catch {
+      // Keep the Safari banner/menu permission path as the primary route.
+      return false;
+    }
+  }
+
   private async closeShopifyDrawerIfOpen(): Promise<void> {
     await this.clickByLabels(["Close", "Close menu"]);
     if (this.isIos()) {
@@ -333,11 +461,165 @@ export class CodegenBuyAgainPage {
   }
 
   private async clickWebOrNative(labels: string[], nativeSelectors: string[], description: string): Promise<void> {
+    const clicked = await this.clickWebOrNativeOptional(labels, nativeSelectors, description);
+    if (!clicked) {
+      throw new Error(`Unable to find ${description}.`);
+    }
+  }
+
+  private async clickWebOrNativeOptional(labels: string[], nativeSelectors: string[], description: string): Promise<boolean> {
     const clickedInWebContext = await this.clickMatchingWebElement(labels);
     if (clickedInWebContext) {
+      return true;
+    }
+    return this.clickVisibleOrPresentWithSwipe(nativeSelectors, description, 3);
+  }
+
+  private async clickVisibleOrPresentWithSwipe(selectors: string[], description: string, attempts: number): Promise<boolean> {
+    return this.withImplicitTimeout(0, async () => {
+      for (let attempt = 0; attempt < attempts; attempt += 1) {
+        for (const selector of selectors) {
+          const elements = await $$(selector);
+          for (const element of elements) {
+            try {
+              if (await element.isDisplayed()) {
+                await element.click();
+                return true;
+              }
+
+              const location = await element.getLocation();
+              const size = await element.getSize();
+              if (size.width > 0 && size.height > 0) {
+                if (this.isIos() && location.y > 650) {
+                  await this.swipeUp();
+                  await browser.pause(700);
+                  continue;
+                }
+                await driver.execute("mobile: tap", {
+                  x: Math.round(location.x + size.width / 2),
+                  y: Math.round(location.y + size.height / 2)
+                });
+                return true;
+              }
+            } catch {
+              // Try the next candidate.
+            }
+          }
+        }
+        await this.swipeUp();
+        await browser.pause(700);
+      }
+      return false;
+    });
+  }
+
+  private async openShopifyCheckoutDirectly(): Promise<void> {
+    const baseUrl = (process.env.SHOPIFY_STOREFRONT_URL || this.defaultStorefrontUrl).replace(/\/+$/, "");
+    await browser.url(`${baseUrl}/cart`);
+    await browser.pause(2000);
+    const clickedFromCart = await this.clickWebOrNativeOptional(["Check out", "Checkout", "CHECK OUT"], [
+      `//*[@name='Check out' or @label='Check out' or @name='CHECK OUT']`,
+      `//*[contains(@name,'Check out') or contains(@label,'Check out') or contains(@name,'Checkout') or contains(@label,'Checkout')]`
+    ], "checkout button from cart");
+    if (!clickedFromCart) {
+      await browser.url(`${baseUrl}/checkout`);
+      await browser.pause(4000);
+    }
+  }
+
+  private async selectFirstAvailableProduct(): Promise<void> {
+    const selected = await this.clickFirstProductInWebContext();
+    if (selected) {
+      this.selectedProductName = selected.name;
+      await browser.pause(3000);
       return;
     }
-    await this.clickFirstVisibleWithSwipe(nativeSelectors, description, 8);
+
+    const productElement = await this.firstNativeProductElementWithSwipe(8);
+    this.selectedProductName = await this.getElementText(productElement) || "Snowboard";
+    await productElement.click();
+    if (!this.selectedProductName) {
+      this.selectedProductName = "Snowboard";
+    }
+    await browser.pause(3000);
+  }
+
+  private async clickFirstProductInWebContext(): Promise<{ name: string; href: string } | undefined> {
+    try {
+      const script = `
+        const links = Array.from(document.querySelectorAll('a[href*="/products/"]'));
+        const product = links
+          .map((link) => ({
+            name: (link.textContent || link.getAttribute('aria-label') || '').replace(/\\s+/g, ' ').trim(),
+            href: link.href
+          }))
+          .find((item) => item.href && item.name && item.name.length > 2);
+        if (!product) {
+          return null;
+        }
+        window.location.href = product.href;
+        return product;
+      `;
+      const product = await browser.execute(script);
+      if (!product || typeof product !== "object") {
+        return undefined;
+      }
+      const candidate = product as { name?: unknown; href?: unknown };
+      const name = String(candidate.name ?? "").trim();
+      const href = String(candidate.href ?? "").trim();
+      return name && href ? { name, href } : undefined;
+    } catch {
+      return undefined;
+    }
+  }
+
+  private async readCurrentProductName(): Promise<string> {
+    try {
+      const name = await browser.execute(`
+        const heading = document.querySelector('h1,[data-product-title],.product__title');
+        return heading ? heading.textContent.replace(/\\s+/g, ' ').trim() : '';
+      `);
+      const productName = String(name ?? "").trim();
+      if (productName) {
+        return productName;
+      }
+    } catch {
+      // Native context fallback below.
+    }
+
+    try {
+      const source = await driver.getPageSource();
+      const match = source.match(/The [^"<]+Snowboard/i);
+      return match?.[0] ?? (this.selectedProductName || "Snowboard");
+    } catch {
+      return this.selectedProductName || "Snowboard";
+    }
+  }
+
+  private async firstNativeProductElementWithSwipe(attempts: number): Promise<WebdriverIO.Element> {
+    for (let attempt = 0; attempt < attempts; attempt += 1) {
+      const elements = await $$(`//*[contains(@name,'Snowboard') or contains(@label,'Snowboard') or contains(@name,'Product') or contains(@label,'Product')]`);
+      for (const element of elements) {
+        try {
+          if (!(await element.isDisplayed())) {
+            continue;
+          }
+          const text = (await this.getElementText(element)).toLowerCase();
+          const looksLikeProductName = text.includes("snowboard") && !text.includes("vendor") && !text.includes("$");
+          if (looksLikeProductName) {
+            return element;
+          }
+        } catch {
+          // Keep scanning.
+        }
+      }
+      await this.swipeUp();
+      await browser.pause(700);
+    }
+    return this.firstVisibleElementWithSwipe([
+      `//*[contains(@name,'Snowboard') or contains(@label,'Snowboard')]`,
+      `//*[contains(@name,'Product') or contains(@label,'Product')]`
+    ], "available product", 3);
   }
 
   private async clickMatchingWebElement(labels: string[]): Promise<boolean> {
