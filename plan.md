@@ -128,6 +128,7 @@ All WebdriverIO runs now generate report artifacts automatically:
 
 - Extent-style detailed HTML: `artifacts/reports/extent-report.html`
 - HTML summary report: `artifacts/reports/html-report.html`
+- Custom dashboard report with failure screenshots: `artifacts/reports/custom-report.html`
 - Allure raw results: `artifacts/allure-results`
 - Allure rendered report after `npm run report:allure:generate`: `artifacts/allure-report/index.html`
 
@@ -138,7 +139,7 @@ Reporting implementation:
 - HTML/Extent report generator: `src/support/reports.ts`
 - Report dependencies: `@wdio/allure-reporter`, `allure-commandline`
 
-Report directories are ignored by git through `artifacts/`; regenerate reports from local test runs.
+Report directories are ignored by git through `artifacts/`; regenerate reports from local test runs. Failed Cucumber steps automatically attach a PNG screenshot in the JSON, Allure, Extent-style, HTML summary, and custom dashboard reports.
 
 ## Codegen Execution Order
 
@@ -246,7 +247,7 @@ Android result:
 
 ### Codegen Buy Again
 
-Status: Implemented as separated Codegen flow, dry run passed
+Status: Implemented as separated Codegen flow, smoke live passed, coverage dry run passed
 
 Feature:
 
@@ -282,10 +283,11 @@ Scripts:
 
 ```text
 npm run test:codegen:buyagain:ios
+npm run test:codegen:buyagain:coverage:ios
 npm run dryrun:codegen:buyagain
 ```
 
-Covered flow:
+Smoke covered flow:
 
 1. Complete current Codegen skip-Gmail onboarding.
 2. Open Shopify storefront.
@@ -302,6 +304,18 @@ Covered flow:
 13. Return to IOMD app.
 14. Open business/product and tap Buy Again.
 
+Additional coverage scenarios:
+
+1. Known available Shopify variant opens the checkout contact form.
+2. Existing node Safari extension permission can be reused.
+3. Invalid Shopify store password keeps the store locked.
+4. Empty Shopify cart does not expose the checkout contact form.
+5. Invalid checkout email shows validation.
+6. Missing checkout address shows required-field validation.
+7. Missing payment security code shows card validation.
+8. Node success overlay can be dismissed before business selection.
+9. Purchased-product lookup supports Shopify title fallback selectors.
+
 Reason for separation:
 
 - The previous legacy runner passed onboarding, Shopify launch, store password, and extension enablement, then failed at product add-to-cart because Safari exposed `Add to cart` as present but hidden behind storefront/extension overlay state.
@@ -311,7 +325,13 @@ Validation:
 
 - 2026-05-08: `npm run dryrun:codegen:buyagain` passed, validating 12 feature steps against Codegen Buy Again step definitions.
 - 2026-05-08: `npm run typecheck` passed.
-- Live iOS execution is still pending; run `npm run test:codegen:buyagain:ios` when ready to exercise Appium/Safari/device behavior.
+- Live iOS smoke execution is active through `npm run test:codegen:buyagain:ios`.
+- 2026-05-10: Added positive, negative, and edge coverage scenarios under the `@coverage` tag.
+- 2026-05-10: Added `npm run test:codegen:buyagain:coverage:ios` for the expanded matrix.
+- 2026-05-10: Kept `npm run test:codegen:buyagain:ios` focused on the stable `@smoke` E2E scenario.
+- 2026-05-10: `npm run dryrun:codegen:buyagain` passed, validating 49 Codegen Buy Again feature steps.
+- 2026-05-10: `npm run typecheck` passed.
+- 2026-05-10: `npm run test:codegen:buyagain:ios` passed after adding the expanded coverage matrix; 1 spec passed, 13 smoke steps passed.
 
 ## Android Readiness
 
@@ -479,10 +499,75 @@ Completed:
 
 Blocked:
 
-- Checkout contact entry is currently blocked because Shopify redirects `/checkout` back to the storefront home page and no email field is present.
-- Failure screenshot confirms the page is the storefront home page with `Shop products`, not the checkout contact form.
-- The likely cause is that Shopify is not retaining the cart item after the native Add to cart interaction, even though the Add to cart step now completes and no longer times out.
-- Payment, order submission, thank-you tracking, Node app purchased-product verification, and Buy Again from Node app remain pending until the checkout page can be reached with a real cart item.
+- Previous checkout contact entry blocker is fixed. The live 2026-05-09 run reached the checkout email field after stable variant cart-add and completed checkout contact entry.
+- Latest live iOS result after the cart-add fix: 9 passing, 1 failing, 3 skipped.
+- Passing live steps now include onboarding, Shopify unlock, extension enable/permission, product open, cart/checkout start, checkout contact details, payment details, and Pay now submit.
+- Current live blocker moved forward to `Codegen Buy Again tracks the order from the thank you page`.
+- Latest failure reason: Shopify stayed on shipping validation because City, State, and ZIP were incomplete, so `Track My Order` never appeared and the step timed out after 120 seconds.
+- Failure screenshot path: `artifacts/screenshots/2026-05-09T18-27-22-524Z/1778351610003-failed-tc-01-complete-shopify-checkout-and-validate-buy-again-from-iomd-codegen-buy-again-tracks-the-order-from-the-thank-you-page.png`.
+- Updated checkout contact automation to fill City, State, ZIP code, and optional phone before payment.
+- Ran `npm run dryrun:codegen:buyagain` successfully after the shipping field fix; 13 Codegen Buy Again steps validated.
+- Ran `npm run typecheck` successfully after the shipping field fix.
+- A follow-up live run is still needed to confirm the shipping-field fix reaches the thank-you page and Node app product verification.
+- 2026-05-10 address validation hardening:
+  - Replaced the partial `670 White` address entry with the framework personal address line `866 Live Oak Avenue`.
+  - Tightened City, ZIP, and Phone selectors to editable text fields only so labels/error messages are not treated as inputs.
+  - Added explicit Shopify address validation guard for `Enter a city`, `Select a state`, and ZIP/postal-code errors before moving to payment.
+  - Ran `npm run typecheck` successfully.
+  - Ran `npm run dryrun:codegen:buyagain` successfully; 13 Codegen Buy Again steps validated.
+- 2026-05-10 follow-up live run result after address hardening: 6 passing, 1 failing, 6 skipped.
+- The address fields progressed further: City was filled with `Menlo Park`, State was selected as `California`, and ZIP was filled with `94025`.
+- New blocker from that run: the step timed out while searching for optional `Phone` after ZIP entry. The phone field is not required for Shopify shipping, so the automation now probes optional fields with no implicit wait and skips phone when it is not visible.
+- Ran `npm run typecheck` successfully after the optional-field timeout fix.
+- Ran `npm run dryrun:codegen:buyagain` successfully after the optional-field timeout fix; 13 Codegen Buy Again steps validated.
+- 2026-05-10 follow-up live run after the optional-field fix reached payment submission: 9 passing, 1 failing, 3 skipped.
+- Address validation is now resolved in the live run: checkout contact details, payment page navigation, and Pay now tap all executed.
+- Latest failure screenshot showed Shopify still on the payment page with the `Security code` field empty and validation text `Enter the CVV or security code on your card`; the apparent Track My Order timeout was caused by failed payment submission, not a missing thank-you-page selector.
+- Updated payment entry to target editable `XCUIElementTypeTextField` controls for Card number, Expiration date, and Security code so label/help-icon elements are not treated as card inputs.
+- 2026-05-10 rerun after payment selector fix exposed a checkout-contact timeout while probing optional Phone after ZIP. Screenshot showed required address fields filled (`Menlo Park`, `California`, `94025`) with keyboard still open.
+- Removed the optional Phone probe entirely and close the keyboard immediately after ZIP; Shopify does not require phone for this checkout.
+- Optimized State lookup to use the no-wait optional swipe helper, reducing wasted implicit waits around the State dropdown.
+- Ran `npm run typecheck` successfully after removing the optional Phone probe.
+- Ran `npm run dryrun:codegen:buyagain` successfully after removing the optional Phone probe; 13 Codegen Buy Again steps validated.
+- Final attempted live rerun did not reach the scenario body because Appium/XCUITest failed to create a new session after simulator reset:
+  - WebDriver error: `UND_ERR_SOCKET` on `POST http://127.0.0.1:4723/session`
+  - Simulator error: `Invalid device state`
+  - Underlying simulator error: `Mach error -308 - (ipc/mig) server died`
+  - Action needed before next live execution: restart the simulator/Appium stack or recreate the simulator, then rerun `npm run test:codegen:buyagain:ios`.
+- Added custom dashboard report generation at `artifacts/reports/custom-report.html` with summary charts, failure list, slowest steps, error stack, and embedded failed-step screenshots.
+- Report generation now falls back to the latest captured JSON run when the current process has no scenario data, so reports can be regenerated after a failed run.
+- Fixed the Buy Again checkout setup to use a stable available Shopify product and variant:
+  - Product: `The Collection Snowboard: Liquid`
+  - Default variant id: `47568759685377`
+  - Override with `SHOPIFY_PRODUCT_URL`, `SHOPIFY_PRODUCT_NAME`, and `SHOPIFY_VARIANT_ID` when needed.
+- Updated Buy Again checkout flow to clear cart, add the known available variant through `/cart/add?id=<variantId>&quantity=1`, then open checkout. This addresses the last build issue where `/checkout` redirected back to the storefront because the cart item was not retained.
+- Ran `npm run dryrun:codegen:buyagain` successfully; 13 Codegen Buy Again steps validated.
+- Ran `npm run typecheck` successfully.
+- Regenerated local reports; latest custom report includes the previous checkout email failure and attached failed-step screenshot.
+- 2026-05-10 retry after restarting the simulator/Appium stack:
+  - Command: `npm run test:codegen:buyagain:ios`.
+  - Result: failed near the end with 11 passing, 1 failing, and 1 skipped.
+  - Address validation is fixed in the live run. Checkout contact details passed, including address, city, state, and ZIP validation.
+  - Payment entry is fixed in the live run. Card number, expiry, CVV, Pay now submit, and thank-you order tracking all passed.
+  - Remaining failure moved to Node app verification after returning from Safari.
+  - Failure step: `Then Codegen Buy Again purchased product is shown in the node app`.
+  - Failure reason: automation could not select `Iomdnewgen21` after 8 swipe attempts because the app was covered by the post-onboarding `Your Commerce Token is ready to use` / `You are all set!` overlay.
+  - Latest failed-step screenshot: `artifacts/screenshots/2026-05-10T08-29-03-180Z/1778402039307-failed-tc-01-complete-shopify-checkout-and-validate-buy-again-from-iomd-codegen-buy-again-purchased-product-is-shown-in-the-node-app.png`.
+  - Latest custom dashboard report: `artifacts/reports/custom-report.html`.
+- 2026-05-10 final fix and live rerun:
+  - Added Node commerce-token overlay dismissal after onboarding, after returning from Safari, and before selecting the `Iomdnewgen21` business.
+  - Avoided `driver.getPageSource()` in the post-checkout Node verification because WebDriverAgent can crash while the Node screen/overlay is animating.
+  - Replaced the purchased-product assertion with direct element lookup for the selected product, `The Collection`, or `Snowboard`.
+  - Ran `npm run typecheck` successfully.
+  - Ran `npm run dryrun:codegen:buyagain` successfully; 13 Codegen Buy Again steps validated.
+  - Ran `npm run test:codegen:buyagain:ios` successfully.
+  - Final live iOS result: 1 spec passed, 13 Cucumber steps passed, 0 failed, 0 skipped.
+  - Final live coverage confirmed checkout contact details, address validation, payment details, order submission, thank-you order tracking, return to IOMD, purchased product visibility in the Node app, and Buy again from IOMD.
+  - Reports generated:
+    - `artifacts/reports/custom-report.html`
+    - `artifacts/reports/extent-report.html`
+    - `artifacts/reports/html-report.html`
+    - `artifacts/allure-results`
 
 ## Next Actions
 
@@ -498,12 +583,9 @@ Status: Pending
 8. Add Step03 persistence checks for onboarding completion / returning-user bypass when the framework has a stable app-data inspection hook.
 9. Start `step04_tabs_and_home_page`.
 10. Continue the remaining Codegen steps in execution order.
-11. For Codegen Buy Again, identify a stable Shopify cart-add mechanism before continuing payment:
-    - preferred: capture product variant id and navigate to `/cart/add?id=<variantId>&quantity=1`
-    - fallback: tune the native Add to cart tap until `/cart` shows the selected product
-12. After cart retention is confirmed, run `npm run test:codegen:buyagain:ios` again and continue through checkout contact, payment, submit order, thank-you tracking, Node app product verification, and Buy Again.
-13. If live iOS still blocks at Shopify checkout, capture page source/screenshots from `/cart` and `/checkout` and update selectors/actions in `src/pages/codegen-buy-again.page.ts`.
-14. Continue legacy Buy Again only for traceability unless the user asks to maintain the legacy generated runner.
+11. Codegen Buy Again is currently passing end to end on iOS; keep it as the reference checkout/Buy Again smoke test.
+12. Continue legacy Buy Again only for traceability unless the user asks to maintain the legacy generated runner.
+13. If live iOS blocks again after checkout, capture screenshots from the failing app state and update selectors/actions in `src/pages/codegen-buy-again.page.ts`.
 
 ## Framework Rules
 

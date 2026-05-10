@@ -9,6 +9,7 @@
     "test:codegen:onboarding:android": "wdio run ./wdio.codegen.onboarding.android.conf.ts",
     "test:codegen:onboarding:ios": "wdio run ./wdio.codegen.onboarding.ios.conf.ts",
     "test:codegen:buyagain:ios": "wdio run ./wdio.codegen.buyagain.ios.conf.ts",
+    "test:codegen:buyagain:coverage:ios": "wdio run ./wdio.codegen.buyagain.coverage.ios.conf.ts",
     "dryrun:codegen:buyagain": "node --import tsx ./scripts/dry-run-codegen-buyagain.ts",
     "test:legacy:buyagain:ios": "wdio run ./wdio.legacy.buyagain.ios.conf.ts",
     "report:allure:generate": "allure generate ./artifacts/allure-results --clean -o ./artifacts/allure-report",

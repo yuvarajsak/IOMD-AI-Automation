@@ -60,6 +60,7 @@ export const sharedConfig = {
   onComplete: async function () {
     await generateHtmlReports();
     console.log("Reports generated:");
+    console.log("  Custom Report: artifacts/reports/custom-report.html");
     console.log("  Extent HTML: artifacts/reports/extent-report.html");
     console.log("  HTML Report: artifacts/reports/html-report.html");
     console.log("  Allure results: artifacts/allure-results");

@@ -9,13 +9,28 @@ const stepDefinitionPatterns = [
   /^Codegen Buy Again enables the node Safari extension$/,
   /^Codegen Buy Again opens any available Shopify product$/,
   /^Codegen Buy Again adds the product to cart and starts checkout$/,
+  /^Codegen Buy Again opens known available variant checkout$/,
+  /^Codegen Buy Again enters invalid Shopify store password$/,
+  /^Codegen Buy Again opens checkout with an empty cart$/,
+  /^Codegen Buy Again submits invalid checkout email$/,
+  /^Codegen Buy Again submits checkout without required address$/,
   /^Codegen Buy Again completes checkout contact details$/,
   /^Codegen Buy Again enters payment details$/,
   /^Codegen Buy Again submits the order$/,
+  /^Codegen Buy Again submits payment without security code$/,
   /^Codegen Buy Again tracks the order from the thank you page$/,
   /^Codegen Buy Again returns to the IOMD app$/,
   /^Codegen Buy Again purchased product is shown in the node app$/,
-  /^Codegen Buy Again product can be ordered again from IOMD$/
+  /^Codegen Buy Again product can be ordered again from IOMD$/,
+  /^Codegen Buy Again checkout contact form is visible$/,
+  /^Codegen Buy Again checkout contact form is not visible$/,
+  /^Codegen Buy Again node extension remains ready for Shopify$/,
+  /^Codegen Buy Again Shopify store remains locked$/,
+  /^Codegen Buy Again invalid email validation is shown$/,
+  /^Codegen Buy Again required address validation is shown$/,
+  /^Codegen Buy Again payment security code validation is shown$/,
+  /^Codegen Buy Again node overlay is dismissed and Iomdnewgen21 can be selected$/,
+  /^Codegen Buy Again can use fallback product selectors in the node app$/
 ];
 
 const stepLinePattern = /^\s*(Given|When|Then|And|But)\s+(.+?)\s*$/;
